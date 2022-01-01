@@ -1,18 +1,18 @@
-{ lib, buildGoPackage, fetchFromGitHub }:
+{ lib, buildGoModule, fetchFromGitHub }:
 
-buildGoPackage rec {
+buildGoModule rec {
   pname = "envconsul";
-  version = "0.7.3";
-  rev = "v${version}";
-
-  goPackagePath = "github.com/hashicorp/envconsul";
+  version = "0.12.1";
+  rev = "v{version}";
 
   src = fetchFromGitHub {
     inherit rev;
     owner = "hashicorp";
     repo = "envconsul";
-    sha256 = "03cgxkyyynr067dg5b0lhvaxn60318fj9fh55p1n43vj5nrzgnbc";
+    sha256 = "1pni0m9kwpmx5909lflqb1p0hf7mi6gxxy2r5iaqfdgjx4crspx1";
   };
+
+  vendorSha256 = "12j7v2n14kh99i1i6a9mflhdgvlfw6nrgshz5585hibk3wfpbaci";
 
   meta = with lib; {
     homepage = "https://github.com/hashicorp/envconsul/";
